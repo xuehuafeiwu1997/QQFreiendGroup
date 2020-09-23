@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) UIButton *button;
+
 @end
 
 @implementation ViewController
@@ -18,20 +20,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setTitle:@"QQ好友列表" forState:UIControlStateNormal];
-    [btn setBackgroundColor:[UIColor blackColor]];
-    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    btn.frame = CGRectMake(0, 0, 150, 50);
-    btn.center = self.view.center;
-    [self.view addSubview:btn];
-    [btn addTarget:self action:@selector(goQQ) forControlEvents:UIControlEventTouchUpInside];
+    self.button.center = self.view.center;
+    [self.view addSubview:self.button];
 }
 
 - (void)goQQ {
     FriendListViewController *friendlist = [[FriendListViewController alloc] init];
-    [self presentViewController:friendlist animated:YES completion:nil];
+    [self.navigationController pushViewController:friendlist animated:YES];
+}
+
+- (UIButton *)button {
+    if (_button) {
+        return _button;
+    }
+    _button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 150, 50)];
+    _button.backgroundColor = [UIColor blackColor];
+    [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_button setTitle:@"QQ好友列表" forState:UIControlStateNormal];
+    [_button addTarget:self action:@selector(goQQ) forControlEvents:UIControlEventTouchUpInside];
+    return _button;
 }
 
 
