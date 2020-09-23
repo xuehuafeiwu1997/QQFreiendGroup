@@ -11,27 +11,6 @@
 
 @implementation FriendTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-+ (instancetype)friendTableViewCellWithTableView:(UITableView *)tableView {
-    FriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([FriendTableViewCell class])];
-    if (cell == nil) {
-        cell = [[FriendTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NSStringFromClass([FriendTableViewCell class])];
-        //设置单元格的选中效果
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    return cell;
-}
-
 - (void)setFriendModel:(FriendModel *)friendModel {
     _friendModel = friendModel;
     NSLog(@"friendModel代表的含义:%@",friendModel);

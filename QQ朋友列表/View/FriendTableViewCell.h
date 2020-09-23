@@ -16,8 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,strong) FriendModel *friendModel;
 
-+ (instancetype)friendTableViewCellWithTableView:(UITableView *)tableView;
-
 @end
 
 NS_ASSUME_NONNULL_END

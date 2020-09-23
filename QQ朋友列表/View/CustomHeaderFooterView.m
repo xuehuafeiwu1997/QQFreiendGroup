@@ -17,15 +17,6 @@
 
 @implementation CustomHeaderFooterView
 
-
-+ (instancetype)headFooterViewWithTableView:(UITableView *)tableView {
-    CustomHeaderFooterView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass([CustomHeaderFooterView class])];
-    if (view == nil) {
-        view = [[CustomHeaderFooterView alloc] initWithReuseIdentifier:NSStringFromClass([CustomHeaderFooterView class])];
-    }
-    return view;
-}
-
 - (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier {
     //初始化父类构造方法
     if (self == [super initWithReuseIdentifier:reuseIdentifier]) {
@@ -59,15 +50,9 @@
     self.group.visible = !self.group.isVisible;
     
     //执行block,将当前对象（即CustomHeaderFooterView传递进去）
-    self.groupHeaderViewDidClick(self);
-    
-    /**
-     没看懂
-     */
-    //此时self.delegate表示的就是Friendlist对象，即协议的代理回调
-//    if (self.delegate && [self.delegate respondsToSelector:@selector(groupHeaderViewDidClickTitleButton:)]) {
-//        [self.delegate groupHeaderViewDidClickTitleButton:self];
-//    }
+    if (self.groupHeaderViewDidClick) {
+        self.groupHeaderViewDidClick(self);
+    }
 }
 
 //当一个新的headerView已经加到某个父控件的时候调用

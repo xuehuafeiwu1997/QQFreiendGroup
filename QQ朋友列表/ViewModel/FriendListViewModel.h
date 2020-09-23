@@ -12,9 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FriendListViewModel : NSObject<UITableViewDelegate,UITableViewDataSource>
+@interface FriendListViewModel : NSObject
 
-@property (nonatomic,strong) FriendListViewController *viewController;
+@property (nonatomic, strong) NSArray *groups;
 
 @end
 

@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FriendListViewController : UIViewController
 
-@property (nonatomic,strong) UITableView *tv;
+@property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSArray *groups;
 
 @end
